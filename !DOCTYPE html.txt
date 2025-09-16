@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagruti Patni - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #5a5a78 0%, #6e6e96 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            background: linear-gradient(45deg, #ddd, #bbb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #666;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .content {
+            padding: 0;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: #f8f9fa;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #5a5a78;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(135deg, #5a5a78, #6e6e96);
+            border-radius: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, #5a5a78, transparent);
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 4px solid #5a5a78;
+        }
+
+        .education-item, .work-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #6e6e96;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .work-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #5a5a78;
+        }
+
+        .item-date {
+            color: #6e6e96;
+            font-weight: 500;
+            background: rgba(110,110,150,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .item-institution {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .work-details {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .work-details li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .work-details li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #6e6e96;
+            font-weight: bold;
+        }
+
+        .publications-list, .certifications-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .publications-list li, .certifications-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 8px;
+            border-left: 3px solid #6e6e96;
+            transition: all 0.3s ease;
+        }
+
+        .publications-list li:hover, .certifications-list li:hover {
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            transform: scale(1.02);
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .competency-group {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #6e6e96;
+        }
+
+        .competency-title {
+            font-weight: bold;
+            color: #5a5a78;
+            margin-bottom: 10px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .activity-item {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .activity-item:hover {
+            border-color: #6e6e96;
+            transform: translateY(-2px);
+        }
+
+        .other-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-group {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 3px solid #6e6e96;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #5a5a78 0%, #6e6e96 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .linkedin-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-link:hover {
+            transform: scale(1.05);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #5a5a78, #6e6e96);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1 class="name">Jagruti Patni</h1>
+                    <p class="title">Forensic Accounting & Financial Investigations</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:jagrutipatni78@gmail.com" style="color: white; text-decoration: none;">jagrutipatni78@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-9725055831</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>16 July 2003</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-photo">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABgIDBAUHAQj/xAAvEAACAQMCBAMGBwAAAAAAAAABAgMABBEFEiEGMUFREyJhBxQjcYGRMqGxwdHh8P/EABsBAAMBAQEBAQAAAAAAAAAAAAABAgMEBQYH/8QAIREAAgICAwADAQEAAAAAAAAAAAECEQMhEjFBBBMiUWH/2gAMAwEAAhEDEQA/AOc29vJdTLFEu9mOAP8A0+1DXEM81ldSWkkMjWrSJK8mxvAi2LhI3IOR3zzNOakdOFnGbS8tbx1ceK9rJHKsf5QjKCynGNp6CppbS7gVGsqKXWJbYEHGFxk4+YcatRcXmqROq6npKXa6k0mVitLgXVikjALHaxNJJj6/oG7d1R/w5qT2TROsxZLyWGJlY5Fq8iTlRnttwec9AOtCy0LxNjIINyFAVRZDlScnqFJP3P0oKh1tJdRkaGTZF7t4WMeBcAEyxOBv9OZPTlQN8qbA6K7Xw5NP1O9s45hLNEkIe3wMXSCRyRjqNqgZJ6g0A6s2v3nD13F7s2t6Oa8e0nstVLqhgWTZMi4w4WQ5fwzkjaSM4I4dYKyqCVOCCCCDgg9RWWqPPOHDhOiWyNdW9p7vdyBpIJ4Pcd2O4Y69OfrXHj9L3tJ1DVuLOINK066wNPvJHs7aCd/w4g3iKo5qWJG45A2qTnDCuj2H+H3CN5qPElz4d2jRW8kEcW9c+LcO7LsJOMKEznrz5cqD9c0pNO4z0+AXYjhnu0VlQYZmVcgAYGQDknGOvQnAvvJgXg5p2m6L7P8Aj7hDQ4/AaSyt9Tg3YANzKziLO3OA20A8gOtdH0/gfT7TibhL2gzvb2c5hS7vLDJe8vS4fZGGJxGqlW55B3Y86H9f1xINJtdIjvNWnN7PY3FmVgP+K28Fk31I8RWLHlkgY7Zw9H/C2p/4g9pV3Np5b32l3cmoXc7RjwpCt3FCtsuCu3xNjHBB8pyQMZOGKr0H/9k=" alt="Jagruti Patni" title="Jagruti Patni">
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-circle"></i>
+                    Summary
+                </h2>
+                <div class="summary">
+                    This proposed research aims to develop and validate an integrated framework that combines advanced audit technologies with environmental compliance monitoring and whistleblowing mechanisms. Objective: to create an effective system for detecting and preventing environmental fraud, enhancing ESG transparency and sustainability assurance.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">PhD in Management (Currently Pursuing)</div>
+                            <div class="item-institution">Kaushalya The Skill University</div>
+                        </div>
+                        <div class="item-date">2025 – Present</div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">M.Com Forensic Accounting & Financial Investigations (72.50%)</div>
+                            <div class="item-institution">Rashtriya Raksha University</div>
+                        </div>
+                        <div class="item-date">2023 – 2025</div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">B.Com (77.60%)</div>
+                            <div class="item-institution">Kadi Sarva Vishwavidyalaya, Gandhinagar</div>
+                        </div>
+                        <div class="item-date">2020 – 2023</div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Class XII (HSC, Gujarat Board) – 78%</div>
+                            <div class="item-institution">Sanskar Tirth, Ajol</div>
+                        </div>
+                        <div class="item-date">2019</div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Class X (SSC, Gujarat Board) – 75%</div>
+                            <div class="item-institution">Sanskar Tirth, Ajol</div>
+                        </div>
+                        <div class="item-date">2017</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Work Experience
+                </h2>
+                <div class="work-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Financial Analyst</div>
+                            <div class="item-institution">Navkar Petronet LLP, Ahmedabad</div>
+                        </div>
+                        <div class="item-date">May 2023 – Apr 2024</div>
+                    </div>
+                    <ul class="work-details">
+                        <li>Collected and analyzed financial data of clients for strategic decision-making</li>
+                        <li>Prepared detailed financial reports, cash flow, ratio analysis</li>
+                        <li>Conducted financial statement analysis to assess company performance</li>
+                        <li>Supported audit processes including concurrent, statutory, and stock audits</li>
+                        <li>Provided insights based on financial data interpretation</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Forensic Accounting Intern</div>
+                            <div class="item-institution">DKMS & Associates, Ahmedabad</div>
+                        </div>
+                        <div class="item-date">Jan 2025 – Mar 2025</div>
+                    </div>
+                    <ul class="work-details">
+                        <li>Assisted in forensic accounting investigations and financial analysis</li>
+                        <li>Applied fraud detection knowledge in practical scenarios</li>
+                        <li>Contributed to client case investigations with attention to detail</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Financial Analyst Intern</div>
+                            <div class="item-institution">Resecurity Pvt. Ltd., USA</div>
+                        </div>
+                        <div class="item-date">Apr 2025 – Jun 2025</div>
+                    </div>
+                    <ul class="work-details">
+                        <li>Worked on sensitive international financial fraud detection cases</li>
+                        <li>Assisted in dark web monitoring and breach investigations</li>
+                        <li>Conducted financial intelligence analysis to identify suspicious transactions</li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">US Accounting & Taxation Intern</div>
+                            <div class="item-institution">Phoenix Institute, Ahmedabad</div>
+                        </div>
+                        <div class="item-date">Jun 2024 – Aug 2024</div>
+                    </div>
+                    <ul class="work-details">
+                        <li>Worked with US accounting practices, Drake Tax and QuickBooks</li>
+                        <li>Gained experience filing US tax returns and identifying issues in statements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-research"></i>
+                    Research Proposal
+                </h2>
+                <div class="summary">
+                    Green CAATs Framework for Environmental Fraud Investigation: Computer-Assisted Audit Techniques for ESG Compliance and Sustainability Whistleblowing.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Research Publications
+                </h2>
+                <ul class="publications-list">
+                    <li>Patni, Jagruti, et al. "An Empirical Study on Awareness of Ponzi Schemes in India." IGI Global, 2024.</li>
+                    <li>Patni, Jagruti, Apra Sharma, et al. "Psychological Triggers in Phishing Attacks." IGI Global, 2025.</li>
+                    <li>Patni, Jagruti, and Naveen Singh. "Corporate Governance Frameworks and Whistleblowing Mechanisms." Nitya Publication, 2023–24.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-file-alt"></i>
+                    Dissertation
+                </h2>
+                <div class="summary">
+                    <strong>Title:</strong> Anatomy of a Wilful Default: Decoding Financial Irregularities and Circular Transactions in Prepax Textiles Case<br>
+                    <strong>Institution:</strong> Rashtriya Raksha University, 2025<br>
+                    <strong>Supervisor:</strong> Dr. Naveen Kumar Singh
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-certificate"></i>
+                    Certifications & Conferences
+                </h2>
+                <ul class="certifications-list">
+                    <li>Ethical Hacking Training Program – SKILCAMP</li>
+                    <li>Private Investigator Online Course – Nyayik Vigyan Academy</li>
+                    <li>Accounting Methods & Practices – Phoenix Screening Services</li>
+                    <li>Hands-on Training in Forensic Accounting (3-Day)</li>
+                    <li>Workshop on Forensic Accounting Standards – Tezpur University (Online)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Core Competencies
+                </h2>
+                <div class="competencies">
+                    <div class="competency-group">
+                        <div class="competency-title">Technical</div>
+                        <div>Ind AS, US & Indian Taxation, Financial Analysis, Internal Audit, Compliance</div>
+                    </div>
+                    <div class="competency-group">
+                        <div class="competency-title">Software</div>
+                        <div>Tally ERP, QuickBooks, Excel, Drake Tax</div>
+                    </div>
+                    <div class="competency-group">
+                        <div class="competency-title">Specialized</div>
+                        <div>Forensic Accounting, Corporate Governance, Tax Planning, Whistleblowing</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    Co-Curricular Activities
+                </h2>
+                <div class="activities-grid">
+                    <div class="activity-item">National Conference – SAGE University, Indore (Sustainability in Business)</div>
+                    <div class="activity-item">Volunteer – Raksha Cup, SPES School</div>
+                    <div class="activity-item">Anchor – Gender Awareness Program</div>
+                    <div class="activity-item">Athlete – Shot Put, Raksha Cup</div>
+                    <div class="activity-item">Club Member – Event Management Club</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Other Details
+                </h2>
+                <div class="other-details">
+                    <div class="detail-group">
+                        <div class="competency-title">Languages</div>
+                        <div>English, Gujarati, Hindi</div>
+                    </div>
+                    <div class="detail-group">
+                        <div class="competency-title">Hobbies</div>
+                        <div>Dancing, Photography, Art & Craft</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <a href="https://www.linkedin.com/in/jagruti-patni-651b0b229" class="linkedin-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                Connect on LinkedIn
+            </a>
+        </footer>
+    </div>
+
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add entrance animations for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
